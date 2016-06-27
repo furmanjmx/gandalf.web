@@ -24,4 +24,10 @@ angular.module('app').config(function ($stateProvider) {
     templateUrl: 'templates/welcome/project-add.html',
     controller: 'WelcomeProjectAddController'
   });
+
+  $stateProvider.state('welcome-activate', {
+    parent: 'welcome-data',
+    url: '/welcome/activate',
+    templateUrl: 'templates/welcome/send-email.html'
+  });
 });

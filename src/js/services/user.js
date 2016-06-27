@@ -12,4 +12,8 @@ angular.module('app').service('UserService', function ($cacheFactory, $rootScope
       return resp.data;
     });
   };
+
+  this.verifyEmail = function (token) {
+    return $gandalf.admin.verifyUserEmail(token);
+  }
 });

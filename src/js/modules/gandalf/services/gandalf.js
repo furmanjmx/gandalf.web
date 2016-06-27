@@ -239,6 +239,23 @@ angular.module('ng-gandalf').provider('$gandalf', function () {
         return $request.get('api/v1/users/current');
       };
 
+      self.admin.resendUserMail = function () {
+        return $request({
+          endpoint: 'api/v1/users/verify/email/resend',
+          method: 'POST'
+        });
+      };
+
+      self.admin.verifyUserEmail = function (token) {
+        return $request({
+          endpoint: 'api/v1/users/verify/email',
+          method: 'POST',
+          headers: {
+            Authorization: 'Basic ' + base64.encode([config.clientId, config.clientSecret].join(':'))
+          }
+        }, {token: token});
+      };
+
       // Projects
 
       self.admin.getCurrentProject = function () {

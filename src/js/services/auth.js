@@ -60,6 +60,11 @@ angular.module('app').run(function ($rootScope, $state, $log, AuthService) {
     //});
   };
 
+  this.authorize = function (user) {
+    $gandalf.setToken(user);
+    storage.auth = user;
+  };
+
   this.logout = function () {
     storage.auth = {};
     $rootScope.$broadcast('userDidLogout');

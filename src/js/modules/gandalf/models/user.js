@@ -23,6 +23,10 @@ angular.module('ng-gandalf').factory('User', function ($gandalf) {
     });
   };
 
+  User.resendActivateMail = function () {
+    return $gandalf.admin.resendUserMail();
+  };
+
   User.prototype.toJSON = function () {
     return {
       _id: this.id,
